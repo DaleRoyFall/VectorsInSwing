@@ -117,12 +117,15 @@ public class MainWindow {
 
         frstVectorInfoLabel = new JLabel("First vector: ()");
         frstVectorInfoLabel.setBounds(600, 270, 160, 30);
+        frstVectorInfoLabel.setForeground(Color.RED);
 
         scndVectorInfoLabel = new JLabel("Second vector: ()");
         scndVectorInfoLabel.setBounds(600, 290, 160, 30);
+        frstVectorInfoLabel.setForeground(Color.GREEN);
 
         thrdVectorInfoLabel = new JLabel("Third vector: ()");
         thrdVectorInfoLabel.setBounds(600, 310, 160, 30);
+        frstVectorInfoLabel.setForeground(Color.BLUE);
 
         graphExtraInfoVectors = new JLabel("Vectors are represents just in bidimensional!");
         graphExtraInfoVectors.setBounds(10, 440, 260, 30);
@@ -270,12 +273,19 @@ public class MainWindow {
 
                 drawGraphAxes(graphics);
 
+                graphics.setColor(Color.RED);
                 graphics.drawLine(graphCenterX, graphCenterY, graphCenterX + finalMaxX * vectorsArray[0][0],
                         graphCenterY - finalMaxY * vectorsArray[0][1]);
+
+                graphics.setColor(Color.GREEN);
                 graphics.drawLine(graphCenterX, graphCenterY, graphCenterX + finalMaxX * vectorsArray[1][0],
                         graphCenterY - finalMaxY * vectorsArray[1][1]);
+
+                graphics.setColor(Color.BLUE);
                 graphics.drawLine(graphCenterX, graphCenterY, graphCenterX + finalMaxX * vectorsArray[2][0],
                         graphCenterY - finalMaxY * vectorsArray[2][1]);
+
+                graphics.setColor(Color.BLACK);
             }
 
         };
