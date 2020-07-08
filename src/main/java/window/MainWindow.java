@@ -128,7 +128,7 @@ public class MainWindow {
         thrdVectorInfoLabel.setForeground(Color.BLUE);
 
         graphExtraInfoVectors = new JLabel("Vectors are represented in bidimensional graph!");
-        graphExtraInfoVectors.setBounds(10, 440, 260, 30);
+        graphExtraInfoVectors.setBounds(10, 440, 290, 30);
 
         frame.add(frstVectorLabel);
         frame.add(scndVectorLabel);
@@ -227,6 +227,9 @@ public class MainWindow {
 
         for (int i = 16; i > 1; i--)
             graphics.drawLine(275,26 * i + 10, 285, 26 * i  + 10);
+
+        graphics.drawLine(566, 450, 566, 424);
+        graphics.drawLine(540, 450, 566, 450);
     }
 
     private void drawGraphWithoutVectors() {
@@ -261,11 +264,11 @@ public class MainWindow {
                 maxY = Math.abs(vectorsArray[i][1]);
         }
 
-        int finalMaxX = 280 / maxX;
-        int finalMaxY = 200 / maxY;
+        int finalMaxXInPixels = 280 / maxX;
+        int finalMaxYInPixels = 200 / maxY;
 
-        System.out.println((float)maxX / 10 + " " + (float)maxY / 7);
-
+        int finalMaxX = maxX;
+        int finalMaxY = maxY;
         graph = new JPanel() {
 
             protected void paintComponent(Graphics graphics) {
@@ -274,18 +277,24 @@ public class MainWindow {
                 drawGraphAxes(graphics);
 
                 graphics.setColor(Color.RED);
-                graphics.drawLine(graphCenterX, graphCenterY, graphCenterX + finalMaxX * vectorsArray[0][0],
-                        graphCenterY - finalMaxY * vectorsArray[0][1]);
+                graphics.drawLine(graphCenterX, graphCenterY, graphCenterX + finalMaxXInPixels * vectorsArray[0][0],
+                        graphCenterY - finalMaxYInPixels * vectorsArray[0][1]);
 
                 graphics.setColor(Color.GREEN);
-                graphics.drawLine(graphCenterX, graphCenterY, graphCenterX + finalMaxX * vectorsArray[1][0],
-                        graphCenterY - finalMaxY * vectorsArray[1][1]);
+                graphics.drawLine(graphCenterX, graphCenterY, graphCenterX + finalMaxXInPixels * vectorsArray[1][0],
+                        graphCenterY - finalMaxYInPixels * vectorsArray[1][1]);
 
                 graphics.setColor(Color.BLUE);
-                graphics.drawLine(graphCenterX, graphCenterY, graphCenterX + finalMaxX * vectorsArray[2][0],
-                        graphCenterY - finalMaxY * vectorsArray[2][1]);
+                graphics.drawLine(graphCenterX, graphCenterY, graphCenterX + finalMaxXInPixels * vectorsArray[2][0],
+                        graphCenterY - finalMaxYInPixels * vectorsArray[2][1]);
 
                 graphics.setColor(Color.BLACK);
+
+                graphics.drawLine(566, 450, 566, 424);
+                graphics.drawString(String.format("%.1f",((float) finalMaxX / 10)), 566, 414);
+                graphics.drawLine(540, 450, 566, 450);
+                graphics.drawString(String.format("%.1f",((float) finalMaxY / 7)), 520, 450);
+
             }
 
         };
