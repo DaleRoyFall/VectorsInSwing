@@ -121,13 +121,13 @@ public class MainWindow {
 
         scndVectorInfoLabel = new JLabel("Second vector: ()");
         scndVectorInfoLabel.setBounds(600, 290, 160, 30);
-        frstVectorInfoLabel.setForeground(Color.GREEN);
+        scndVectorInfoLabel.setForeground(Color.GREEN);
 
         thrdVectorInfoLabel = new JLabel("Third vector: ()");
         thrdVectorInfoLabel.setBounds(600, 310, 160, 30);
-        frstVectorInfoLabel.setForeground(Color.BLUE);
+        thrdVectorInfoLabel.setForeground(Color.BLUE);
 
-        graphExtraInfoVectors = new JLabel("Vectors are represents just in bidimensional!");
+        graphExtraInfoVectors = new JLabel("Vectors are represented in bidimensional graph!");
         graphExtraInfoVectors.setBounds(10, 440, 260, 30);
 
         frame.add(frstVectorLabel);
